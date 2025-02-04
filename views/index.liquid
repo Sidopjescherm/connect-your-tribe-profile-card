@@ -6,7 +6,18 @@
     <p>mijn naam is</p>
   </header>
 
-  <p>{{ Sidney Hermus }}</p>
+    <p>{{ person.name }}</p>
+
+    <p>Wie ben ik?</p>
+    <p>{{ person.bio }}</p>
+
+    <p>Mijn bio</p>
+    <p>{{ person.bio }}</p>
+
+    <details>
+      <summary>Super Secret Info</summary>
+        <p>{{ person|json }}</p>
+    </details>
 
   <footer></footer>
 </article>
