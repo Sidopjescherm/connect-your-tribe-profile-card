@@ -38,9 +38,13 @@ app.set('views', './views')
 // Om Views weer te geven, heb je Routes nodig
 // Maak een GET route voor de index (meestal doe je dit in de root, als /)
 // In je visitekaartje was dit waarschijnlijk index.html
-app.get('/', async function (request, response) {
    // Render index.liquid uit de Views map en geef de opgehaalde data mee, in een variabele genaamd person
-   response.render('index.liquid', {person: personResponseJSON.data})
+app.get('/', async function (request, response){
+  response.render('index.liquid', {person: personResponseJSON.data, custom: custom})
+})
+const custom = JSON.parse(personResponseJSON.data.custom)
+app.get('/oefenen', async function (request, response) {
+  response.render('oefenen.liquid', {person: personResponseJSON.data, custom: custom})
 })
 
 // Had je meer pagina's in je oude visitekaartje? Zoals een contact.html?
